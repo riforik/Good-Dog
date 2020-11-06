@@ -1,0 +1,81 @@
+/* GENERAL STYLING */
+body {
+  font-size: 1rem;
+  font-family: "Arial", Helvetica, sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: #f6f6f6;
+}
+
+main {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border-radius: 10px;
+  border: 0;
+  font-size: 1rem;
+  box-shadow: 0px 2px 10px #888888;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+h3,
+p {
+  padding: 2px;
+}
+
+p {}
+
+/* ELEMENT STYLING */
+/* Navigation */
+.navigation {
+  width: 100vw;
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  top: 95vh;
+  border-radius: 15px;
+}
+
+/* Title */
+.titleContainer {
+  padding: 10px;
+  width: 100%;
+  background-color: #e7e7e7;
+  border-bottom: 1px solid #bfbfbf;
+}
+
+/* Title */
+/* Article */
+.dogData {
+  width: 90vw;
+}
+
+.heading {
+  font-weight: 600;
+}
+
+.info {
+  font-style: italic;
+}
+
+.loadMore {
+  width: auto;
+  min-height: 25px;
+  position: absolute;
+  right: 5vw;
+}
+
+.user {
+  border-radius: 5px;
+  background-color: #ececec;
+  box-shadow: 0px 3px 0 0 #dbdbdb;
+  margin: 10px;
+  padding: 5px;
+}
