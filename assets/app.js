@@ -3,11 +3,11 @@
 let dogContainer = document.getElementById("dogData");
 // Button to load more user results
 let loadMore = document.getElementById("loadMore");
-// Page limit tracking
+// Page limit tracking & url array
 let userCount = 25;
 let urls = ['https://jsonplaceholder.typicode.com/comments', 'https://random.dog/woof.json'];
 
-// JSON DATA FETCH
+// JSON User Data Fetch
 let grabData = (userCount) => {
   fetch(urls[0])
     .then(response => {
@@ -27,7 +27,7 @@ let fillPage = (dogs, count) => {
   // Loop for the NEXT 25 users added to page, from 0
   for (let i = count - 25; i < count; i++) {
     // User element container
-    let content = document.createElement('div');
+    let content = document.createElement('section');
     // Grab Photos with another fetch
     fetch(urls[1])
       .then(data => data.json())
@@ -36,17 +36,17 @@ let fillPage = (dogs, count) => {
         content.id = `${dogs[i].id}`; // assign ID
         // Exclude video formats
         if (!imgs.url.includes("mp4" || "webm")) {
-          content.innerHTML += `
-          <img src="${imgs.url}" class="profilePhoto">`;
+          content.innerHTML += `<figure>
+        <img src="${imgs.url}?size=small" class="profilePhoto" alt="User"> </figure>`;
         } else {
-          content.innerHTML += `
-          <img src="./assets/img/dogImg.jpg" class="profilePhoto">`;
+          content.innerHTML += ` <figure>
+        <img src="./assets/img/dogImg.jpg" class="profilePhoto" alt="User"> </figure>`;
         }
-        content.innerHTML += `
+        content.innerHTML += ` <summary>
         <h3 class="name heading" id="${dogs[i].postId}">${dogs[i].name}</h3>
-        <p class="email info">${dogs[i].email}</p>
+        <span class="email info">${dogs[i].email}</span></summary>
         <p class="description">${dogs[i].body}</p>`;
-        content.innerHTML += `</div>`;
+        content.innerHTML += `</section>`; // close section
       });
     // append content to document
     dogContainer.append(content);
@@ -59,11 +59,10 @@ let fillPage = (dogs, count) => {
 loadMore.addEventListener("click", loadUsers => {
   // Maximum users reached
   if (userCount >= 501) {
-    console.log(`User Limit Reached: 500`);
-    return;
+    alert(`No more woofs`); // alert user
+    return; // do not enter the population function
   } else {
-    console.log(`Loading 25 more users: ${userCount}`);
-    grabData(userCount);
+    grabData(userCount); // enter the population function
   };
 });
 
