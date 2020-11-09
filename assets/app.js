@@ -1,11 +1,11 @@
 // V A R I A B L E S
 // The element data will be sent to
-let dogContainer = document.getElementById("dogData");
+const dogContainer = document.getElementById("dogData");
 // Button to load more user results
-let loadMore = document.getElementById("loadMore");
+const loadMore = document.getElementById("loadMore");
 // Page limit tracking & url array
 let userCount = 25;
-let urls = ['https://jsonplaceholder.typicode.com/comments', 'https://random.dog/woof.json'];
+const urls = ['https://jsonplaceholder.typicode.com/comments', 'https://random.dog/woof.json'];
 
 // JSON User Data Fetch
 let grabData = (userCount) => {
@@ -58,7 +58,7 @@ let fillPage = (dogs, count) => {
 // EVENT HANDLERS
 loadMore.addEventListener("click", loadUsers => {
   // Maximum users reached
-  if (userCount >= 501) {
+  if (userCount >= 525) {
     alert(`No more woofs`); // alert user
     return; // do not enter the population function
   } else {
